@@ -1,0 +1,13 @@
+../Core/Src/mqtt.c:62:6:hex_to_json	24	static
+../Core/Src/mqtt.c:91:6:SIMTransmit	24	static
+../Core/Src/mqtt.c:101:6:assignPDPcontext	8	static
+../Core/Src/mqtt.c:131:6:Quectelon	8	static
+../Core/Src/mqtt.c:147:6:uploadcertificate1	24	static
+../Core/Src/mqtt.c:176:6:uploadcertificate2	24	static
+../Core/Src/mqtt.c:198:6:uploadcertificate3	24	static
+../Core/Src/mqtt.c:226:6:checkConnection	16	static
+../Core/Src/mqtt.c:323:11:initializeMQTT	24	static
+../Core/Src/mqtt.c:390:6:connectMQTT	16	static
+../Core/Src/mqtt.c:463:6:disconnectMQTT	16	static
+../Core/Src/mqtt.c:498:6:publishToTopic	24	static
+../Core/Src/mqtt.c:556:6:TransmitDataMqtt	24	static

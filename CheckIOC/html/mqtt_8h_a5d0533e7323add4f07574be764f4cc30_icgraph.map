@@ -1,0 +1,15 @@
+<map id="checkConnection" name="checkConnection">
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,53,534,80"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,28,55,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="419,50,363,35,290,19,233,10,176,9,103,19,56,33,54,28,102,13,176,4,234,5,291,14,364,29,420,45"/>
+<area shape="rect" id="Node000003" href="$mqtt_8c.html#afe8befed0d8aaae12fa445793ee42a05" title=" " alt="" coords="277,91,363,117"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="401,87,364,96,363,91,400,82"/>
+<area shape="rect" id="Node000004" href="$mqtt_8c.html#a481d6bab60d4687c018d6b5f395bc9f5" title=" " alt="" coords="107,28,225,55"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="395,60,363,57,225,47,226,42,364,52,396,55"/>
+<area shape="rect" id="Node000005" href="$mqtt_8c.html#a9f41def8fe8a8ebdd3482ed6e9d8b07d" title=" " alt="" coords="103,91,229,117"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="443,92,407,114,364,132,322,138,280,136,240,129,206,120,207,115,241,124,280,131,322,133,363,127,404,110,440,87"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="346,78,337,72,320,69,305,71,296,76,294,81,298,89,294,91,289,82,292,72,303,66,320,64,339,67,349,73"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="270,87,200,58,202,53,273,82"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="261,107,230,107,230,101,261,101"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="120,86,54,55,56,50,122,81"/>
+</map>

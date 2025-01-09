@@ -1,0 +1,45 @@
+!SESSION 2024-08-30 14:55:59.462 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-30 14:56:16.102
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-30 14:56:16.108
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\Cert_upload\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-30 14:56:18.361
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-30 14:56:46.083 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-30 14:57:16.017
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-30 14:57:16.018
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\Cert_upload\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-30 14:57:18.790
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-30 16:15:58.912 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-30 16:16:19.329
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-30 16:16:19.330
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\Cert_upload\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-30 16:16:22.105
+!MESSAGE Started RMI Server, listening on port 41337

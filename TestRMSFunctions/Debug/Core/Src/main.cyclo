@@ -1,0 +1,12 @@
+../Core/Src/main.c:87:6:Quectelon	1
+../Core/Src/main.c:101:6:logError	7
+../Core/Src/main.c:120:6:HAL_UART_TxCpltCallback	2
+../Core/Src/main.c:126:6:HAL_UART_RxCpltCallback	2
+../Core/Src/main.c:133:11:SIMTransmit	9
+../Core/Src/main.c:173:11:assignPDPcontext	5
+../Core/Src/main.c:210:5:main	1
+../Core/Src/main.c:257:6:SystemClock_Config	3
+../Core/Src/main.c:298:13:MX_USART3_UART_Init	2
+../Core/Src/main.c:334:13:MX_USART4_UART_Init	2
+../Core/Src/main.c:370:13:MX_GPIO_Init	1
+../Core/Src/main.c:404:6:Error_Handler	1

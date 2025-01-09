@@ -1,0 +1,438 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include <config.h>
+#include <mqtt.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+#define LED_Pin GPIO_PIN_5
+#define LED_GPIO_Port GPIOA
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart3;
+UART_HandleTypeDef huart4;
+
+/* USER CODE BEGIN PV */
+uint8_t data[PACKET_DATA_LENGTH] = {0};
+uint8_t txData[] = TX_DATA;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART3_UART_Init(void);
+static void MX_USART4_UART_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+	  /* USER CODE BEGIN 1 */
+
+    // Use the defined macros to initialize variables
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART3_UART_Init();
+  MX_USART4_UART_Init();
+  uint8_t buffer[100] = {0};
+  void load_rsa_certificate(const char *cert, const char cert_len) {
+      for (unsigned int i = 0; i < cert_len; i++) {
+          if (HAL_UART_Transmit(&huart3, &cert[i], 1, HAL_MAX_DELAY) != HAL_OK) {
+              // Transmission Error
+              Error_Handler();
+          }
+      }
+  }
+  const char *ca_cert = "-----BEGIN CERTIFICATE-----\r\n"
+  	                      "MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\r\n"
+  	                      "ADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\r\n"
+  	                      "b24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\r\n"
+  	                      "MAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\r\n"
+  	                      "b3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\r\n"
+  	                      "ca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\r\n"
+  	                      "9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\r\n"
+  	                      "IFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\r\n"
+  	                      "VOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\r\n"
+  	                      "93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\r\n"
+  	                      "jgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\r\n"
+  	                      "AYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\r\n"
+  	                      "A4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\r\n"
+  	                      "U5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\r\n"
+  	                      "N+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\r\n"
+  	                      "o/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\r\n"
+  	                      "5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\r\n"
+  	                      "rqXRfboQnoZsG4q5WTP468SQvvG5\r\n"
+  	                      "-----END CERTIFICATE-----\r\n";
+
+  	const char *client_cert = "-----BEGIN CERTIFICATE-----\r\n"
+  	                          "MIIDWjCCAkKgAwIBAgIVALDyBszAcon7g9fp6pO5sWtclGUOMA0GCSqGSIb3DQEB\r\n"
+  	                          "CwUAME0xSzBJBgNVBAsMQkFtYXpvbiBXZWIgU2VydmljZXMgTz1BbWF6b24uY29t\r\n"
+  	                          "IEluYy4gTD1TZWF0dGxlIFNUPVdhc2hpbmd0b24gQz1VUzAeFw0yNDA4MDMwNTQ2\r\n"
+  	                          "MjVaFw00OTEyMzEyMzU5NTlaMB4xHDAaBgNVBAMME0FXUyBJb1QgQ2VydGlmaWNh\r\n"
+  	                          "dGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3EJNTZb2cqUot0gUC\r\n"
+  	                          "g3luknSZMlBHireoZX+38xnzjBtj23cjxBKFlHUdNbRIZwIXJ75yUa9Z7MzT0bVW\r\n"
+  	                          "HPrzjMWT29U95GxjEVYdBmZjUvEv2PibpsgnPczGX3I4y2BF4NDZFgr8X6MGKf7E\r\n"
+  	                          "Geop/wHds2E4L+QqDcWB6s6oAA4qQUs+w7iohKWf9xOKd/ed7ireFlzpPFhB3y2q\r\n"
+  	                          "ECl2fNQBfC3tdaS1qw+QW4rNnwr/yvWTDGy5Xyp65MbC4NOv+XXMsn5wuHXkya1j\r\n"
+  	                          "39saYRPmGMWgjGWcbqq81Q/p54XD8nFYIrxISiF7bV71L1qKZ8zrFqb7FTWj+mX+\r\n"
+  	                          "7lmLAgMBAAGjYDBeMB8GA1UdIwQYMBaAFNJGbQP2ZBpFxAYgWg1a0FzUYdOxMB0G\r\n"
+  	                          "A1UdDgQWBBR0ZyZPVMrCVn1+xkzpXM6WdaPtbDAMBgNVHRMBAf8EAjAAMA4GA1Ud\r\n"
+  	                          "DwEB/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAMNMHcfFFiyTPMNAWSEnuvFgs\r\n"
+  	                          "+mjWVSzcylviHD5e1XRUv/UerUoTADdCmOTlXnDHEjPDHBTuIBbEwmcfvOLWQkSG\r\n"
+  	                          "Da+R+F2MdHSdJDbuwGJX2l7MFB6BI5GllkNbCXPE7HwQmQSlmLyimDToX7E+r7u6\r\n"
+  	                          "lZQRHQ7KRqUIZZQG11r1uzB/PHRUYtjXmCkeZ/NiH3z2ltKEaYSRL8hsu+JutQAt\r\n"
+  	                          "AO0846FDnTUwpI5tuTfK8G3TfoKi6T4+oCq9rVjcthtfn8v6BTzfFQ9LkDu5GDUV\r\n"
+  	                          "ntJbP9nYwE6cdqlNtYP8r4TxVQ04dD7La+VbJ0swBNcg+tN+9gdlx/SiguU/iw==\r\n"
+  	                          "-----END CERTIFICATE-----\r\n";
+
+  	const char *private_key = "-----BEGIN RSA PRIVATE KEY-----\r\n"
+  	                          "MIIEpAIBAAKCAQEAtxCTU2W9nKlKLdIFAoN5bpJ0mTJQR4q3qGV/t/MZ84wbY9t3\r\n"
+  	                          "I8QShZR1HTW0SGcCFye+clGvWezM09G1Vhz684zFk9vVPeRsYxFWHQZmY1LxL9j4\r\n"
+  	                          "m6bIJz3Mxl9yOMtgReDQ2RYK/F+jBin+xBnqKf8B3bNhOC/kKg3FgerOqAAOKkFL\r\n"
+  	                          "PsO4qISln/cTinf3ne4q3hZc6TxYQd8tqhApdnzUAXwt7XWktasPkFuKzZ8K/8r1\r\n"
+  	                          "kwxsuV8qeuTGwuDTr/l1zLJ+cLh15MmtY9/bGmET5hjFoIxlnG6qvNUP6eeFw/Jx\r\n"
+  	                          "WCK8SEohe21e9S9aimfM6xam+xU1o/pl/u5ZiwIDAQABAoIBADV7CC9TB8PeySb9\r\n"
+  	                          "tiz3z9/3tUyUIFPmOKVfkaJhyPEXu2C+2t1+CJMxvc0cxWBph3jQSZkIOBwjS+uN\r\n"
+  	                          "1lYj/URtmcMKdA+yzd9bTzcHiZ32uzNpRafjX5HnQg2qEKp679M6TIk/IVJ9dhj0\r\n"
+  	                          "59LOZ1SBhUAJiZtqklOe1laQDHOTod9BwU7Z76RS2etI33tkKl88sKUOWcuBIyp3\r\n"
+  	                          "BeMK9rK+uN/J0ajWlGFh1uZcH0CbXJvuu/9lkbTCPcXN2BuJFqwMwkTcnEDDl49K\r\n"
+  	                          "szjJRLuDItN7hk2mPTOZ3cn2QXrlx7TXUBKpJPKkkyhTQAbyTa7ucOCGzZgeiUka\r\n"
+  	                          "w7D+VBECgYEA5QogAGyZU9viZzN4oDPvhwmY0QS6Tts1Fs/yYzX+VIJNGCztPzuC\r\n"
+  	                          "diWHFBZQaCW+7cOd4n2k1V/MW5JeV21cbIQsAkn0lDPpfCAr5lb96rkzNdCi59qO\r\n"
+  	                          "eH/Fxi0fszHzp+U0jp5PmkqYb1ir5Gi1n0r3jkbYrkHDARjVcaC//v0CgYEAzJ0L\r\n"
+  	                          "3U4LSU4jWbLeM/TLzkOjkpJtQ+o1YF0rtbNo6CiOB9nDg6pTRqGZnbeQGebDnirG\r\n"
+  	                          "oJmRnVzIf7LAmYOoXjleR+0whAnXLluEa1v6fpUdGIiGqb6oSY+OKLqMX9T6OSG+\r\n"
+  	                          "RklHVNtdKt0B7AMLaasnMD3TMIxyTa+KFOp+1ScCgYEAsohS66G7Xue+Mi2n8FCr\r\n"
+  	                          "fDpZ2UvzIfazCkYrrXPv/NXY3GhgwnJTvl6ATYMbSCNsEY/y6RKBQyW6eQK98S44\r\n"
+  	                          "5gmc+GfHcyKH9I5rSdAzexzDs0YfRdVSStFmS5Tu6dKdGBmM/0Kd0ConalvXGWMZ\r\n"
+  	                          "d8KK92d4DVULeTZvYnQoVM0CgYEAjdckXWJ3snZnTQwQuyWsjq0W3EmDUzwtikKs\r\n"
+  	                          "RUY8qAtNAiY0Qba2CdWGfu28CCiPXLq8fKJYbiTenJ9WolTBR6gvMl87bZzAvVMV\r\n"
+  	                          "xbK6QDuwMsyZxVv0nyHT42oGW3xxhV9d3q13tFxpBoi0h15I8BSEkw2YtCP4LOBO\r\n"
+  	                          "MVepWqsCgYAdKvCwegzciB3Je8zqvKsiYCQh2VZSAwjDw3F6k3IjnhSEhiU9rxHu\r\n"
+  	                          "7IFlTqaB4rhLvvDwOwS1s3btDoKk8ka+ivv8hKIeG74pH0J5uAp0oA51rnjMCiWA\r\n"
+  	                          "J2HvOCFJXM77Fm3qdsjd2yKclnXXnz4FXPgaDyviBVryt9TkeG6NOg==\r\n"
+  	                          "-----END RSA PRIVATE KEY-----\r\n";
+
+
+  	uint8_t data[70] = {
+  	    0x4A, 0x6F, 0x68, 0x6E, 0x20, 0x44, 0x6F, 0x65, 0x20, 0x69, 0x73, 0x20, 0x61, 0x20, 0x73, 0x6F,
+  	    0x66, 0x74, 0x77, 0x61, 0x72, 0x65, 0x20, 0x65, 0x6E, 0x67, 0x69, 0x6E, 0x65, 0x65, 0x72, 0x2E,
+  	    0x20, 0x48, 0x65, 0x20, 0x68, 0x61, 0x73, 0x20, 0x6F, 0x76, 0x65, 0x72, 0x20, 0x31, 0x30, 0x20,
+  	    0x79, 0x65, 0x61, 0x72, 0x73, 0x20, 0x6F, 0x66, 0x20, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x65,
+  	    0x6E, 0x63, 0x65, 0x2E
+  	};
+  	uploadcertificate(ca_cert);
+//  	checkConnection();
+//  	SIMTransmit("AT+QFUPL=\"UFS:AmazonRootCA1.pem\",1187,100\r\n", 20, 2000);
+//
+//  	if (strstr((char *)buffer, "CONNECT")){
+//  		  SIMTransmit(ca_cert, 20, 2000);
+//  		  HAL_Delay(4000);
+// 		  if (strstr((char *)buffer, "OK")){
+//  			  HAL_Delay(500);
+//  		  }
+// 	  }
+  /* USER CODE BEGIN 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+ while(1){
+  /* USER CODE END WHILE */
+
+  bool TransmitDataMqtt_flag = false;
+  HAL_StatusTypeDef Inverter_receive_status=HAL_TIMEOUT;
+  // Try to receive the inverter data
+  // The  TransmitDataMqtt will not be called until data is received
+//  while(Inverter_receive_status!=HAL_OK){
+//	  HAL_UART_Transmit_IT(&huart4, txData, sizeof(txData));
+//  	  Inverter_receive_status=HAL_UART_Receive(&huart4, data, PACKET_DATA_LENGTH,2000);
+// 	  HAL_Delay(2000);
+//  	  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+//  }
+   // Transmit Data via MQTT through Quectel
+   TransmitDataMqtt_flag = TransmitDataMqtt(data,PACKET_DATA_LENGTH);
+
+//  After the execution of TransmitDataMqtt function the TransmitDataMqtt_flag may either be true or false.
+//  For debugging purposes if the TransmitDataMqtt_flag is true then the LED blinks at a faster rate(Less Delay).
+//  And for unsuccessful transmission the LED blinks slower rate( High Delay).
+//  The LED Blinks until the timer exceeds the MINUTES_INTERVAL duration.
+
+    uint32_t last_tick = HAL_GetTick(); // Initialize the last tick time
+    while (((HAL_GetTick() - last_tick)) < MINUTES_INTERVAL)
+    {
+      if (TransmitDataMqtt_flag)
+      {
+        // Transmission Successful
+        HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+        HAL_Delay(500);
+        HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+        HAL_Delay(500);
+      }
+      else
+      {
+        // Transmission Failed
+        HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+        HAL_Delay(1500);
+        HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+        HAL_Delay(1500);
+      }
+    }
+
+
+
+  /* USER CODE END 2 */
+
+
+}
+
+}
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief USART3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART3_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART3_Init 0 */
+
+  /* USER CODE END USART3_Init 0 */
+
+  /* USER CODE BEGIN USART3_Init 1 */
+
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART3_Init 2 */
+
+  /* USER CODE END USART3_Init 2 */
+
+}
+
+/**
+  * @brief USART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART4_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART4_Init 0 */
+
+  /* USER CODE END USART4_Init 0 */
+
+  /* USER CODE BEGIN USART4_Init 1 */
+
+  /* USER CODE END USART4_Init 1 */
+  huart4.Instance = USART4;
+  huart4.Init.BaudRate = 9600;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart4.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART4_Init 2 */
+
+  /* USER CODE END USART4_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PA2 PA3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF1_USART2;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_GREEN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

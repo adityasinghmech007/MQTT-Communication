@@ -1,0 +1,188 @@
+\doxysection{Core/src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{Core/src/main.c@{Core/src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include $<$config.\+h$>$}\newline
+{\ttfamily \#include $<$mqtt.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_ac969c4fccd009dd70b69992d92cbe81a}{LED\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+5
+\item 
+\#define \mbox{\hyperlink{main_8c_a3cf393d21586a4097159246e8aca13a2}{LED\+\_\+\+GPIO\+\_\+\+Port}}~GPIOA
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_ae273feb3e0dc44e38892650faa58fced}{huart4}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_acb741e0ead69ab636a601f8bf188f6ba}{tx\+Data}} \mbox{[}$\,$\mbox{]} = \mbox{\hyperlink{config_8h_ab7aa78c51c5c51bbfd493bf42bef0de3}{TX\+\_\+\+DATA}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_aae105f02540703d757418e00529138f4}{data}} \mbox{[}70\mbox{]} = \{0\}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{main_8c_a3f18b66cc171f88a2951b96289013974}{Inverter\+\_\+receive\+\_\+status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8c_a3cf393d21586a4097159246e8aca13a2}\index{main.c@{main.c}!LED\_GPIO\_Port@{LED\_GPIO\_Port}}
+\index{LED\_GPIO\_Port@{LED\_GPIO\_Port}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED\_GPIO\_Port}{LED\_GPIO\_Port}}
+{\footnotesize\ttfamily \label{main_8c_a3cf393d21586a4097159246e8aca13a2} 
+\#define LED\+\_\+\+GPIO\+\_\+\+Port~GPIOA}
+
+\Hypertarget{main_8c_ac969c4fccd009dd70b69992d92cbe81a}\index{main.c@{main.c}!LED\_Pin@{LED\_Pin}}
+\index{LED\_Pin@{LED\_Pin}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED\_Pin}{LED\_Pin}}
+{\footnotesize\ttfamily \label{main_8c_ac969c4fccd009dd70b69992d92cbe81a} 
+\#define LED\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+5}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily \label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a1730ffe1e560465665eb47d9264826f9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily \label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
+void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Initializes the CPU, AHB and APB buses clocksHere is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{main_8c_a70af21c671abfcc773614a9a4f63d920_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_aae105f02540703d757418e00529138f4}\index{main.c@{main.c}!data@{data}}
+\index{data@{data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{main_8c_aae105f02540703d757418e00529138f4} 
+uint8\+\_\+t data\mbox{[}70\mbox{]} = \{0\}}
+
+\Hypertarget{main_8c_ab7c63c1b0f65db92b6a4ea19edf957e1}\index{main.c@{main.c}!huart3@{huart3}}
+\index{huart3@{huart3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{huart3}{huart3}}
+{\footnotesize\ttfamily \label{main_8c_ab7c63c1b0f65db92b6a4ea19edf957e1} 
+UART\+\_\+\+Handle\+Type\+Def huart3}
+
+\Hypertarget{main_8c_ae273feb3e0dc44e38892650faa58fced}\index{main.c@{main.c}!huart4@{huart4}}
+\index{huart4@{huart4}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{huart4}{huart4}}
+{\footnotesize\ttfamily \label{main_8c_ae273feb3e0dc44e38892650faa58fced} 
+UART\+\_\+\+Handle\+Type\+Def huart4}
+
+\Hypertarget{main_8c_a3f18b66cc171f88a2951b96289013974}\index{main.c@{main.c}!Inverter\_receive\_status@{Inverter\_receive\_status}}
+\index{Inverter\_receive\_status@{Inverter\_receive\_status}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Inverter\_receive\_status}{Inverter\_receive\_status}}
+{\footnotesize\ttfamily \label{main_8c_a3f18b66cc171f88a2951b96289013974} 
+HAL\+\_\+\+Status\+Type\+Def Inverter\+\_\+receive\+\_\+status}
+
+\Hypertarget{main_8c_acb741e0ead69ab636a601f8bf188f6ba}\index{main.c@{main.c}!txData@{txData}}
+\index{txData@{txData}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{txData}{txData}}
+{\footnotesize\ttfamily \label{main_8c_acb741e0ead69ab636a601f8bf188f6ba} 
+uint8\+\_\+t tx\+Data\mbox{[}$\,$\mbox{]} = \mbox{\hyperlink{config_8h_ab7aa78c51c5c51bbfd493bf42bef0de3}{TX\+\_\+\+DATA}}}
+

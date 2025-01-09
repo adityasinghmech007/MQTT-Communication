@@ -1,0 +1,10 @@
+14:05:32 **** Incremental Build of configuration Debug for project rms_v1 ****
+make -j16 all 
+arm-none-eabi-size  rms_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25432	    212	   4956	  30600	   7788	rms_v1.elf
+Finished building: default.size.stdout
+ 
+
+14:05:32 Build Finished. 0 errors, 0 warnings. (took 321ms)
+

@@ -1,0 +1,374 @@
+!SESSION 2024-07-29 15:59:58.080 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-29 16:00:12.430
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-29 16:00:12.437
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\STM Code\display_to_quectel\UART_test\STM32G070\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-29 16:00:14.704
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-07-29 16:01:57.023 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-29 16:02:17.061
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-29 16:02:17.062
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\STM Code\display_to_quectel\UART_test\STM32G070\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-29 16:02:19.769
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:09:40.576 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:10:07.105
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:10:07.113
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:10:09.870
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:10:28.746 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:10:36.495
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:10:36.496
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:10:39.320
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:11:18.982 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:11:25.749
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:11:25.750
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:11:28.458
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:56:15.277 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:56:20.776
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:56:20.778
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:56:23.894
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:56:38.150 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:56:43.316
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:56:43.318
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:56:46.137
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:57:11.625 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:57:20.117
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:57:20.118
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:57:23.043
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:57:55.768 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:57:59.494
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:57:59.495
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:58:02.384
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:58:41.039 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:58:48.353
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:58:48.354
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:58:51.405
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-07 14:59:06.329 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-07 14:59:14.993
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-07 14:59:14.994
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-07 14:59:17.781
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.ui 4 4 2024-08-07 14:59:18.867
+!MESSAGE To avoid deadlock while executing Display.syncExec() with argument: com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporter$3@6da3ddd3, thread Worker-9: Executing the early startup extensions will interrupt UI thread.
+!SUBENTRY 1 org.eclipse.ui 4 4 2024-08-07 14:59:18.868
+!MESSAGE Worker-9: Executing the early startup extensions thread is an instance of Worker or owns an ILock
+!STACK 0
+java.lang.IllegalStateException: Call stack for thread Worker-9: Executing the early startup extensions
+	at java.management@17.0.11/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@17.0.11/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:492)
+	at org.eclipse.ui.internal.UILockListener.reportInterruption(UILockListener.java:214)
+	at org.eclipse.ui.internal.UILockListener.interruptUI(UILockListener.java:180)
+	at org.eclipse.ui.internal.PendingSyncExec.waitUntilExecuted(PendingSyncExec.java:92)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:142)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4802)
+	at com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporter.importProjectImpl(MCUProjectImporter.java:376)
+	at com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporterStartup.handleArguments(MCUProjectImporterStartup.java:141)
+	at com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporterStartup.earlyStartup(MCUProjectImporterStartup.java:57)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:79)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:55)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2762)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.ui 4 4 2024-08-07 14:59:18.868
+!MESSAGE UI thread waiting on a job or lock.
+!STACK 0
+java.lang.IllegalStateException: Call stack for thread main
+	at java.base@17.0.11/java.lang.Object.wait(Native Method)
+	at org.eclipse.core.internal.jobs.Semaphore.acquire(Semaphore.java:45)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:191)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:125)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:100)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:87)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:232)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:426)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:408)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:402)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:395)
+	at org.eclipse.cdt.make.ui.MakeContentProvider.getSourceEntries(MakeContentProvider.java:411)
+	at org.eclipse.cdt.make.ui.MakeContentProvider.getChildren(MakeContentProvider.java:106)
+	at org.eclipse.cdt.make.ui.MakeContentProvider.hasChildren(MakeContentProvider.java:174)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2238)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:557)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2268)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updatePlus(AbstractTreeViewer.java:2996)
+	at org.eclipse.jface.viewers.TreeViewer.updatePlus(TreeViewer.java:805)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:878)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2912)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1995)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:688)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1964)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1921)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1907)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$2(StructuredViewer.java:1468)
+	at org.eclipse.jface.viewers.StructuredViewer$$Lambda$729/0x00000001008661f8.run(Unknown Source)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1468)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:526)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1422)
+	at org.eclipse.cdt.make.ui.MakeContentProvider.lambda$0(MakeContentProvider.java:242)
+	at org.eclipse.cdt.make.ui.MakeContentProvider$$Lambda$1153/0x00000001008b7098.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4046)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3662)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:166)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:368)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:470)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:230)
+	at org.eclipse.ui.internal.progress.ProgressManager.lambda$26(ProgressManager.java:836)
+	at org.eclipse.ui.internal.progress.ProgressManager$$Lambda$1099/0x00000001009cbc98.run(Unknown Source)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:869)
+	at org.eclipse.ui.internal.progress.ProgressManager.busyCursorWhile(ProgressManager.java:845)
+	at com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporter$3.run(MCUProjectImporter.java:383)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:68)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:172)
+	at org.eclipse.ui.internal.UISynchronizer$$Lambda$1096/0x00000001009cb458.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4046)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.ui.internal.Workbench$$Lambda$241/0x0000000100304990.run(Unknown Source)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base@17.0.11/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.11/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.11/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at app//org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at app//org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-07 14:59:23.010
+!MESSAGE Indexed 'rms_v1' (26 sources, 154 headers) in 3.62 sec: 12,417 declarations; 47,544 references; 11 unresolved inclusions; 310 syntax errors; 1,234 unresolved names (2%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2024-08-08 13:58:41.648
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SEIL\Desktop\rms_v1\Debug\rms_v1.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:336)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2024-08-08 13:58:41.648
+!MESSAGE C:\Users\SEIL\Desktop\rms_v1\Debug\rms_v1.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SEIL\Desktop\rms_v1\Debug\rms_v1.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:336)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-08-08 14:20:25.462 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-08 14:20:41.543
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-08 14:20:41.549
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-08 14:20:47.914
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-08 14:30:01.894 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-08 14:30:12.159
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-08 14:30:12.159
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-08 14:30:17.803
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-08 14:58:30.220 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-08 14:58:37.704
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-08 14:58:37.705
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-08 14:58:43.219
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-08 15:44:22.582 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-08 15:44:39.869
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-08 15:44:39.869
+!MESSAGE Log4j2 initialized with config file C:\Users\SEIL\Desktop\MQTT_Comm\display_to_quectel\rms_v1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-08 15:44:45.672
+!MESSAGE Started RMI Server, listening on port 41337

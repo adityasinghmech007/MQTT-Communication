@@ -1,0 +1,399 @@
+#include "mqtt.h"
+#include "config.h"
+#include "main.h" // Include any necessary headers for HAL functions and GPIO pins
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+// #include <ArduinoJson.h>
+//  Add any necessary global variables or constants here
+
+static char endpoint[] = "a2wusdljipwadj-ats.iot.ap-south-1.amazonaws.com";
+//static char thingname[] = "thing1";
+static char thingname[] = "Aditya";
+
+
+const uint32_t conn_timeout = 40000;
+char ATcommand[400];
+
+uint8_t buffer[1024] = {0};
+uint8_t buffer1[1024] = {0};
+uint8_t ATisOK = 0;
+uint8_t CGREGisOK = 0;
+uint32_t previousTick;
+uint16_t readValue;
+char charData[15];
+int count = 0;
+const char *ca_cert = "-----BEGIN CERTIFICATE-----\r\n"
+                      "MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\r\n"
+                      "ADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\r\n"
+                      "b24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\r\n"
+                      "MAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\r\n"
+                      "b3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\r\n"
+                      "ca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\r\n"
+                      "9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\r\n"
+                      "IFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\r\n"
+                      "VOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\r\n"
+                      "93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\r\n"
+                      "jgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\r\n"
+                      "AYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\r\n"
+                      "A4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\r\n"
+                      "U5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\r\n"
+                      "N+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\r\n"
+                      "o/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\r\n"
+                      "5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\r\n"
+                      "rqXRfboQnoZsG4q5WTP468SQvvG5\r\n"
+                      "-----END CERTIFICATE-----\r\n";
+
+const char *client_cert = "-----BEGIN CERTIFICATE-----\r\n"
+                          "MIIDWjCCAkKgAwIBAgIVALDyBszAcon7g9fp6pO5sWtclGUOMA0GCSqGSIb3DQEB\r\n"
+                          "CwUAME0xSzBJBgNVBAsMQkFtYXpvbiBXZWIgU2VydmljZXMgTz1BbWF6b24uY29t\r\n"
+                          "IEluYy4gTD1TZWF0dGxlIFNUPVdhc2hpbmd0b24gQz1VUzAeFw0yNDA4MDMwNTQ2\r\n"
+                          "MjVaFw00OTEyMzEyMzU5NTlaMB4xHDAaBgNVBAMME0FXUyBJb1QgQ2VydGlmaWNh\r\n"
+                          "dGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3EJNTZb2cqUot0gUC\r\n"
+                          "g3luknSZMlBHireoZX+38xnzjBtj23cjxBKFlHUdNbRIZwIXJ75yUa9Z7MzT0bVW\r\n"
+                          "HPrzjMWT29U95GxjEVYdBmZjUvEv2PibpsgnPczGX3I4y2BF4NDZFgr8X6MGKf7E\r\n"
+                          "Geop/wHds2E4L+QqDcWB6s6oAA4qQUs+w7iohKWf9xOKd/ed7ireFlzpPFhB3y2q\r\n"
+                          "ECl2fNQBfC3tdaS1qw+QW4rNnwr/yvWTDGy5Xyp65MbC4NOv+XXMsn5wuHXkya1j\r\n"
+                          "39saYRPmGMWgjGWcbqq81Q/p54XD8nFYIrxISiF7bV71L1qKZ8zrFqb7FTWj+mX+\r\n"
+                          "7lmLAgMBAAGjYDBeMB8GA1UdIwQYMBaAFNJGbQP2ZBpFxAYgWg1a0FzUYdOxMB0G\r\n"
+                          "A1UdDgQWBBR0ZyZPVMrCVn1+xkzpXM6WdaPtbDAMBgNVHRMBAf8EAjAAMA4GA1Ud\r\n"
+                          "DwEB/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAMNMHcfFFiyTPMNAWSEnuvFgs\r\n"
+                          "+mjWVSzcylviHD5e1XRUv/UerUoTADdCmOTlXnDHEjPDHBTuIBbEwmcfvOLWQkSG\r\n"
+                          "Da+R+F2MdHSdJDbuwGJX2l7MFB6BI5GllkNbCXPE7HwQmQSlmLyimDToX7E+r7u6\r\n"
+                          "lZQRHQ7KRqUIZZQG11r1uzB/PHRUYtjXmCkeZ/NiH3z2ltKEaYSRL8hsu+JutQAt\r\n"
+                          "AO0846FDnTUwpI5tuTfK8G3TfoKi6T4+oCq9rVjcthtfn8v6BTzfFQ9LkDu5GDUV\r\n"
+                          "ntJbP9nYwE6cdqlNtYP8r4TxVQ04dD7La+VbJ0swBNcg+tN+9gdlx/SiguU/iw==\r\n"
+                          "-----END CERTIFICATE-----\r\n";
+
+const char *private_key = "-----BEGIN RSA PRIVATE KEY-----\r\n"
+                          "MIIEpAIBAAKCAQEAtxCTU2W9nKlKLdIFAoN5bpJ0mTJQR4q3qGV/t/MZ84wbY9t3\r\n"
+                          "I8QShZR1HTW0SGcCFye+clGvWezM09G1Vhz684zFk9vVPeRsYxFWHQZmY1LxL9j4\r\n"
+                          "m6bIJz3Mxl9yOMtgReDQ2RYK/F+jBin+xBnqKf8B3bNhOC/kKg3FgerOqAAOKkFL\r\n"
+                          "PsO4qISln/cTinf3ne4q3hZc6TxYQd8tqhApdnzUAXwt7XWktasPkFuKzZ8K/8r1\r\n"
+                          "kwxsuV8qeuTGwuDTr/l1zLJ+cLh15MmtY9/bGmET5hjFoIxlnG6qvNUP6eeFw/Jx\r\n"
+                          "WCK8SEohe21e9S9aimfM6xam+xU1o/pl/u5ZiwIDAQABAoIBADV7CC9TB8PeySb9\r\n"
+                          "tiz3z9/3tUyUIFPmOKVfkaJhyPEXu2C+2t1+CJMxvc0cxWBph3jQSZkIOBwjS+uN\r\n"
+                          "1lYj/URtmcMKdA+yzd9bTzcHiZ32uzNpRafjX5HnQg2qEKp679M6TIk/IVJ9dhj0\r\n"
+                          "59LOZ1SBhUAJiZtqklOe1laQDHOTod9BwU7Z76RS2etI33tkKl88sKUOWcuBIyp3\r\n"
+                          "BeMK9rK+uN/J0ajWlGFh1uZcH0CbXJvuu/9lkbTCPcXN2BuJFqwMwkTcnEDDl49K\r\n"
+                          "szjJRLuDItN7hk2mPTOZ3cn2QXrlx7TXUBKpJPKkkyhTQAbyTa7ucOCGzZgeiUka\r\n"
+                          "w7D+VBECgYEA5QogAGyZU9viZzN4oDPvhwmY0QS6Tts1Fs/yYzX+VIJNGCztPzuC\r\n"
+                          "diWHFBZQaCW+7cOd4n2k1V/MW5JeV21cbIQsAkn0lDPpfCAr5lb96rkzNdCi59qO\r\n"
+                          "eH/Fxi0fszHzp+U0jp5PmkqYb1ir5Gi1n0r3jkbYrkHDARjVcaC//v0CgYEAzJ0L\r\n"
+                          "3U4LSU4jWbLeM/TLzkOjkpJtQ+o1YF0rtbNo6CiOB9nDg6pTRqGZnbeQGebDnirG\r\n"
+                          "oJmRnVzIf7LAmYOoXjleR+0whAnXLluEa1v6fpUdGIiGqb6oSY+OKLqMX9T6OSG+\r\n"
+                          "RklHVNtdKt0B7AMLaasnMD3TMIxyTa+KFOp+1ScCgYEAsohS66G7Xue+Mi2n8FCr\r\n"
+                          "fDpZ2UvzIfazCkYrrXPv/NXY3GhgwnJTvl6ATYMbSCNsEY/y6RKBQyW6eQK98S44\r\n"
+                          "5gmc+GfHcyKH9I5rSdAzexzDs0YfRdVSStFmS5Tu6dKdGBmM/0Kd0ConalvXGWMZ\r\n"
+                          "d8KK92d4DVULeTZvYnQoVM0CgYEAjdckXWJ3snZnTQwQuyWsjq0W3EmDUzwtikKs\r\n"
+                          "RUY8qAtNAiY0Qba2CdWGfu28CCiPXLq8fKJYbiTenJ9WolTBR6gvMl87bZzAvVMV\r\n"
+                          "xbK6QDuwMsyZxVv0nyHT42oGW3xxhV9d3q13tFxpBoi0h15I8BSEkw2YtCP4LOBO\r\n"
+                          "MVepWqsCgYAdKvCwegzciB3Je8zqvKsiYCQh2VZSAwjDw3F6k3IjnhSEhiU9rxHu\r\n"
+                          "7IFlTqaB4rhLvvDwOwS1s3btDoKk8ka+ivv8hKIeG74pH0J5uAp0oA51rnjMCiWA\r\n"
+                          "J2HvOCFJXM77Fm3qdsjd2yKclnXXnz4FXPgaDyviBVryt9TkeG6NOg==\r\n"
+                          "-----END RSA PRIVATE KEY-----\r\n";
+
+// Define the initialization commands for MQTT
+//These commands are taken from the Ec200 MQTT application note.
+//These commands are configurable and can be changed according to the requirements of the application.
+
+static char *initCommands[9] = {
+    "AT+QSSLCFG=\"cacert\",2,\"AmazonRootCA1.pem\"\r\n",
+    "AT+QSSLCFG=\"clientcert\",2,\"client.pem\"\r\n",
+    "AT+QSSLCFG=\"clientkey\",2,\"key.pem\"\r\n",
+    "AT+QSSLCFG=\"seclevel\",2,2\r\n",
+    "AT+QSSLCFG=\"sslversion\",2,4\r\n",
+    "AT+QSSLCFG=\"ciphersuite\",2,0xFFFF\r\n",
+    "AT+QSSLCFG=\"ignorelocaltime\",2,1\r\n",
+    "AT+QMTCFG=\"SSL\", 0, 1, 2\r\n",
+    "AT+QMTCFG=\"version\",0,4\r\n"};
+
+// Define the MQTT connection commands
+static char *connCommands[3] = {
+    "AT+QMTOPEN=0,\"%s\",8883\r\n",  // Placeholder for endpoint and port
+    "AT+QMTCONN=0,\"%s\"\r\n",     // Placeholder for thingname
+    "AT+QMTPUB=0,1,0,0,\"%s\"\r\n" // Placeholder for topic
+};
+
+// Define the payload and topic for publishing
+// uint8_t hex_data[] = {0x67, 0xA4, 0x0A, 0x00, 0x00, 0x4F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC2, 0x08, 0x47, 0x00, 0x0D, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x42, 0x00, 0x01, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x69};
+
+// Get the JSON string from the function
+char json_string[300]; // Global declaration
+
+//The hex_to_json function converts the hexadecimal values that are being received from the display into
+//a json packet consisting of an object called data that can be identified by the amplify application and this data can be pushed into the database.
+void hex_to_json(uint8_t *data, int data_length)
+{
+  // Construct JSON string
+  sprintf(json_string, "{\"data\": [");
+
+  for (int i = 0; i < data_length; i++)
+  {
+    // Convert each byte from hexadecimal to decimal and add to JSON string
+    sprintf(json_string + strlen(json_string), "%d", data[i]);
+
+    if (i < data_length - 1)
+    {
+      strcat(json_string, ",");
+    }
+  }
+
+  strcat(json_string, "]}");
+
+  // No need to return the JSON string
+}
+
+
+// Function to transmit commands to the SIM module
+//The SIMTransmit function takes several arguments i.e. cmd,rcv_len and rcv_timeout.
+//The cmd argument consists of the AT command that is to be transmitted.
+//The rcv_len and rcv_timeout functions are specific to the HAL_UART_Receive function for defining variable rcv_len and rcv_timeouts for different AT commands.
+//The timeouts and reception length for different ATcommands used in the code are defined on observing the module responses with 2G and 4G networks.
+//The timeouts and reception length can be optimized further while testing.
+
+void SIMTransmit(char *cmd,uint32_t rcv_len, uint32_t rcv_timeout)
+{
+  //  memset(ATcommand,0,sizeof(ATcommand));
+  int i = strlen(cmd);
+  memset(buffer, 0, sizeof(buffer));
+  HAL_StatusTypeDef error_tr;
+  HAL_StatusTypeDef error_rc;
+  error_tr = HAL_UART_Transmit_IT(&huart3, (uint8_t *)cmd, strlen(cmd));
+  HAL_Delay(2000);
+  error_rc = HAL_UART_Receive(&huart3, buffer, rcv_len, rcv_timeout);
+
+}
+
+
+bool uploadcertificate(const char *cert) {
+	char buffer1[2048];
+	sprintf(buffer1, "AT+QSSLCFG=0,0,\"cacert\"\r\n");
+	SIMTransmit(buffer1, 20, 2000);
+//  size_t cert_len = strlen(cert);
+	memset(buffer1, 0,sizeof(buffer1));
+	sprintf(buffer1,"%s",cert);
+    SIMTransmit(buffer1, 1024, 5000);
+    HAL_Delay(4000);
+    SIMTransmit("0x1A", 20, 2000);
+}
+
+
+
+
+//    for (unsigned int i = 0; i < cert_len; i++) {
+//            if (HAL_UART_Transmit(&huart3, &cert[i], 1, HAL_MAX_DELAY) != HAL_OK) {
+//                // Transmission Error
+//                Error_Handler();
+
+
+
+
+
+    // You can set a condition for what the length should be, for example:
+
+
+
+
+//Function to check connection with the Quectel Module
+//The checkConnection function firstly checks the response of the module by sending an AT command continuously and waiting for either the timeout to occur or the module to response an OK response.
+//After the module returns OK to the basic connection command it confirms the module's connectivity with the microController, now the function checks for the network registration of the module by the second AT command
+//which is "AT+CGREG?\r\n" , the response of this command must either be "+CGREG:0,1" for local network connectivity and "+CGREG:0,5" for roaming connectivity.
+//If the module don't respond or if the module is not able to find any network connection within the timeout period then the function response with a false output.
+bool checkConnection(void)
+{
+  ATisOK = 0;
+  CGREGisOK = 0;
+
+  // Check for OK response for AT
+  previousTick = HAL_GetTick();
+  while (!ATisOK && previousTick + conn_timeout > HAL_GetTick())
+  {
+    count++;
+    SIMTransmit("AT\r\n",20,2000);
+    HAL_Delay(500);
+    if (strstr((char *)buffer, "OK"))
+    {
+      ATisOK = 1;
+    }
+  }
+
+  // Check for network registration.
+  if (ATisOK)
+  {
+    previousTick = HAL_GetTick();
+    while (!CGREGisOK && previousTick + conn_timeout > HAL_GetTick())
+    {
+      SIMTransmit("AT+CGREG?\r\n",20,2000);
+      HAL_Delay(500);
+      if (strstr((char *)buffer, "+CGREG: 0,1")) // Use 0,5 For Roaming
+      {
+        CGREGisOK = 1;
+        return true;
+      }
+    }
+  }
+  return false;
+}
+// Function to initialize MQTT
+// The initalizeMQTT function one by one initializes the defined initialization commands by sending AT commands using the SIMTransmit function.
+// There is a timeout defined for each command named conn_timeout that is same as the checkConnection()function.
+// Each command is repeatively send to the Quectel module for execution until the module responses with an OK response.
+// If there is a timeout for any command the function will stop executing further and then return false as output.
+// If all commands are executed successfully then the function returns true.
+bool initializeMQTT(void)
+{
+  for (int i = 0; i < sizeof(initCommands); i++)
+  {
+    // Transmit the command
+    sprintf(ATcommand, initCommands[i]);
+    SIMTransmit(ATcommand,20,2000);
+    //	        SIMTransmit(initCommands[i]);
+
+    // Wait for the "OK" response with conn_timeout
+    ATisOK = 0;
+    uint32_t startTick = HAL_GetTick();
+    //	        HAL_Delay(1000);
+    while (!ATisOK && (HAL_GetTick() - startTick) < conn_timeout)
+    {
+      count++;
+      SIMTransmit(ATcommand,20,2000);
+      HAL_Delay(500);
+      if (strstr((char *)buffer, "OK"))
+      {
+        ATisOK = 1;
+      }
+    }
+
+    // Check if the response is not "OK"
+    if (!ATisOK)
+    {
+      return false; // Return false if any command fails
+    }
+  }
+
+  // If all commands are successfully sent
+  return true;
+}
+
+// Function to connect to MQTT broker
+// The connectMQTT function transmits and analyzes the responses of two commands i.e. "AT+QMTOPEN" and "AT+QMTCONN".
+// The QMTOPEN command is for opening a connection with my AWS server with 8883 port for SSL based MQTT communication.
+// The QMTCONN command is for connecting to a particular thing defined on the AWS server.
+// Both of the commands have 2 retries for a single transmission.
+// This function also handles the responses of both of the commands, the details of the responses can be seen from the MQTT application note mentioned in the start.
+// If a response of "+QMTOPEN: 0,2" is received it means that either the connection is being made or already a connection is established. But as the module was not able to transmit the message,
+// So the previous connection is closed using "AT+QMTCLOSE" AT command and the loop is continued to try to connect to the server again.
+
+bool connectMQTT(void)
+{
+  for (int i = 0; i < 2; i++)
+  {
+    sprintf(ATcommand, connCommands[0], endpoint);
+    SIMTransmit(ATcommand,22,30000);
+    HAL_Delay(500);
+    if (strstr((char *)buffer, "+QMTOPEN: 0,2"))
+    {
+    	SIMTransmit("AT+QMTCLOSE=0",20,3000);
+    	continue;
+    }
+    else if (strstr((char *)buffer, "+QMTOPEN: 0,4"))
+    {
+    	continue;
+    }
+    else if (strstr((char *)buffer, "+QMTOPEN: 0,5"))
+    {
+    	continue;
+    }
+    sprintf(ATcommand, connCommands[1], thingname);
+    SIMTransmit(ATcommand,30,10000);
+    HAL_Delay(500);
+    if (strstr((char *)buffer, "+QMTCONN: 0,0,0"))
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+// Function to disconnect from MQTT broker
+bool disconnectMQTT(void)
+{
+  SIMTransmit("AT+QMTDISC=0",20,2000);
+  HAL_Delay(500);
+  return true;
+}
+
+// Function to publish message to MQTT topic
+// The PublishToTopic function takes two arguments first is the data from display to be transmitted and second is the data_length.
+// It executes and analyze the output of the publish command i.e. "AT+QMTPUB", after the initial command is executed, if there is no errors, the module asks the user for the message to be published.
+// The data is sent to the hexTojson function to convert the data in a json format that is defined in the function.
+// Next the json data is sent to the module using the SimTransmit function with a terminating character '0xla' to indicate the module that the message is completed and transmit it.
+// If the response is not "+QMTPUB: 0,1,0" it states that the message transmission is not successful and send a terminate character in case if the module has not terminated the message.
+
+bool publishToTopic(uint8_t *data, int data_length)
+{
+  if (data == NULL || data_length == 0)
+  {
+    return false; // Handle invalid input
+  }
+
+  sprintf(ATcommand, connCommands[2], topic);
+  HAL_Delay(100);
+  SIMTransmit(ATcommand,30,2000);
+  HAL_Delay(2000);
+  if (strstr((char *)buffer, "ERROR"))
+    {
+      return false;
+    }
+  hex_to_json(data, data_length);
+  sprintf(ATcommand, "%s%c", json_string, 0x1a);
+  SIMTransmit(ATcommand,30,5000);
+  HAL_Delay(500);
+  if (strstr((char *)buffer, "+QMTPUB: 0,1,0"))
+  {
+    //		       disconnectMQTT();
+    return true;
+  }
+  sprintf(ATcommand, "%c", 0x1a);
+  SIMTransmit(ATcommand,30,2000);
+  return false;
+}
+
+// Function for Overall Transmission of Inverter Data via MQTT to Cloud.
+// The TransmitDataMqtt function handle the overall MQTT communication using other MQTT functions i.e.checkConnection,connectMQTT,initializeMQTT,publishToTopic.
+// In this function a flow is defined for the MQTT functions to be called in a sequential order, this function could be further optimized if any errors are encountered during testing.
+// The TransmitDataMqtt function takes around 3-4 minutes on initial setup(when the module is turned on) after that if the module is able to open a connection with the MQTT server it takes less than 10 seconds to transmit a message, until the MQTT connection is open.
+bool TransmitDataMqtt(uint8_t *data, int data_length){
+	  if (checkConnection())
+	  {
+	    if (!publishToTopic(data, data_length))
+	    {
+	      if (!connectMQTT())
+	      {
+	        initializeMQTT();
+	        connectMQTT();
+	        if (publishToTopic(data, data_length))
+	        {
+	          // disconnectMQTT();
+	          return true;
+	        }
+	      }
+	      else
+	      {
+	        if (publishToTopic(data, data_length))
+	        {
+	          // disconnectMQTT();
+	          return true;
+	        }
+	      }
+	    }
+	    else
+	    {
+	      // disconnectMQTT();
+	      return true;
+	    }
+	  }
+	  return false;
+}

@@ -1,0 +1,126 @@
+\doxysection{Core/src/stm32g0xx\+\_\+it.c File Reference}
+\hypertarget{stm32g0xx__it_8c}{}\label{stm32g0xx__it_8c}\index{Core/src/stm32g0xx\_it.c@{Core/src/stm32g0xx\_it.c}}
+
+
+Interrupt Service Routines.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g0xx\+\_\+it.\+h"{}}\newline
+Include dependency graph for stm32g0xx\+\_\+it.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{stm32g0xx__it_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{NMI\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Non maskable interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Hard fault interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}{SVC\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles System service call via SWI instruction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623}{Pend\+SV\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Pendable request for system service. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles System tick timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a1aabaf02d0eafd24b4634143c04af37d}{USART3\+\_\+4\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles USART3 and USART4 interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_ae273feb3e0dc44e38892650faa58fced}{huart4}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interrupt Service Routines. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!HardFault\_Handler@{HardFault\_Handler}}
+\index{HardFault\_Handler@{HardFault\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{HardFault\_Handler()}{HardFault\_Handler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea} 
+void Hard\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles Hard fault interrupt. 
+
+\Hypertarget{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!NMI\_Handler@{NMI\_Handler}}
+\index{NMI\_Handler@{NMI\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{NMI\_Handler()}{NMI\_Handler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc} 
+void NMI\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles Non maskable interrupt. 
+
+\Hypertarget{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!PendSV\_Handler@{PendSV\_Handler}}
+\index{PendSV\_Handler@{PendSV\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{PendSV\_Handler()}{PendSV\_Handler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623} 
+void Pend\+SV\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles Pendable request for system service. 
+
+\Hypertarget{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!SVC\_Handler@{SVC\_Handler}}
+\index{SVC\_Handler@{SVC\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SVC\_Handler()}{SVC\_Handler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce} 
+void SVC\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles System service call via SWI instruction. 
+
+\Hypertarget{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e} 
+void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles System tick timer. 
+
+\Hypertarget{stm32g0xx__it_8c_a1aabaf02d0eafd24b4634143c04af37d}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!USART3\_4\_IRQHandler@{USART3\_4\_IRQHandler}}
+\index{USART3\_4\_IRQHandler@{USART3\_4\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{USART3\_4\_IRQHandler()}{USART3\_4\_IRQHandler()}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_a1aabaf02d0eafd24b4634143c04af37d} 
+void USART3\+\_\+4\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles USART3 and USART4 interrupts. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{stm32g0xx__it_8c_ab7c63c1b0f65db92b6a4ea19edf957e1}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!huart3@{huart3}}
+\index{huart3@{huart3}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{huart3}{huart3}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_ab7c63c1b0f65db92b6a4ea19edf957e1} 
+UART\+\_\+\+Handle\+Type\+Def huart3\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{stm32g0xx__it_8c_ae273feb3e0dc44e38892650faa58fced}\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!huart4@{huart4}}
+\index{huart4@{huart4}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{huart4}{huart4}}
+{\footnotesize\ttfamily \label{stm32g0xx__it_8c_ae273feb3e0dc44e38892650faa58fced} 
+UART\+\_\+\+Handle\+Type\+Def huart4\hspace{0.3cm}{\ttfamily [extern]}}
+

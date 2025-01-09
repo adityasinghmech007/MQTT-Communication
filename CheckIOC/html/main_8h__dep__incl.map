@@ -1,0 +1,11 @@
+<map id="Core/inc/main.h" name="Core/inc/main.h">
+<area shape="rect" id="Node000001" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="218,5,331,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html" title=": Main program body" alt="" coords="5,88,120,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,40,97,90,95,85,227,35"/>
+<area shape="rect" id="Node000003" href="$mqtt_8c.html" title=" " alt="" coords="144,88,256,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,45,213,90,209,86,250,42"/>
+<area shape="rect" id="Node000004" href="$stm32g0xx__hal__msp_8c.html" title="This file provides code for the MSP Initialization and de&#45;Initialization codes." alt="" coords="280,80,419,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="298,42,332,78,328,82,294,45"/>
+<area shape="rect" id="Node000005" href="$stm32g0xx__it_8c.html" title="Interrupt Service Routines." alt="" coords="443,88,607,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="329,35,487,85,485,90,327,40"/>
+</map>

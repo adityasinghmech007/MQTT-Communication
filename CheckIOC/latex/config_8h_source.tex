@@ -1,0 +1,36 @@
+\doxysection{config.\+h}
+\hypertarget{config_8h_source}{}\label{config_8h_source}\index{Core/inc/config.h@{Core/inc/config.h}}
+\mbox{\hyperlink{config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Jun\ 3,\ 2024}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ SEIL}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ CONFIG\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//Interval\ between\ consecutive\ transmissions}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MINUTES\_INTERVAL\ 60000\ }\textcolor{comment}{//\ 1\ minutes\ in\ milliseconds}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Define\ macros\ for\ conditional\ compilation}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ SINGLE\_PHASE\ \ }\textcolor{comment}{//\ Uncomment\ this\ line\ to\ define\ SINGLE\_PHASE}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\#define\ THREE\_PHASE\ \ \ //\ Uncomment\ this\ line\ to\ define\ THREE\_PHASE}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Define\ packet\ data\ length\ and\ txData\ array\ based\ on\ the\ phase}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ SINGLE\_PHASE}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \#define\ PACKET\_DATA\_LENGTH\ 70}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#define\ TX\_DATA\ \{0x47,\ 0x01,\ 0x37\}}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//static\ char\ topic[]\ =\ "{}testsub"{};}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#elif\ defined(THREE\_PHASE)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ \#define\ PACKET\_DATA\_LENGTH\ 122}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#define\ TX\_DATA\ \{0x52,\ 0x47,\ 0x01,\ 0xC5\}}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ topic[]\ =\ \textcolor{stringliteral}{"{}inverter/3p/1/data"{}};}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CONFIG\_H}}
+\DoxyCodeLine{00030\ }
+
+\end{DoxyCode}

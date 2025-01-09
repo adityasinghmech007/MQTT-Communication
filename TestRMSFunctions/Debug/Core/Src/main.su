@@ -1,0 +1,12 @@
+../Core/Src/main.c:87:6:Quectelon	8	static
+../Core/Src/main.c:101:6:logError	16	static
+../Core/Src/main.c:120:6:HAL_UART_TxCpltCallback	16	static
+../Core/Src/main.c:126:6:HAL_UART_RxCpltCallback	16	static
+../Core/Src/main.c:133:11:SIMTransmit	40	static
+../Core/Src/main.c:173:11:assignPDPcontext	8	static
+../Core/Src/main.c:210:5:main	8	static
+../Core/Src/main.c:257:6:SystemClock_Config	88	static
+../Core/Src/main.c:298:13:MX_USART3_UART_Init	8	static
+../Core/Src/main.c:334:13:MX_USART4_UART_Init	8	static
+../Core/Src/main.c:370:13:MX_GPIO_Init	56	static
+../Core/Src/main.c:404:6:Error_Handler	8	static,ignoring_inline_asm

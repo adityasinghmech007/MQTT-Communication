@@ -1,0 +1,100 @@
+\doxysection{Core/inc/main.h File Reference}
+\hypertarget{main_8h}{}\label{main_8h}\index{Core/inc/main.h@{Core/inc/main.h}}
+
+
+\+: Header for \doxylink{main_8c}{main.\+c} file. This file contains the common defines of the application.  
+
+
+{\ttfamily \#include "{}stm32g0xx\+\_\+hal.\+h"{}}\newline
+Include dependency graph for main.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{main_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_a1a9a753e892d0c27036cb8929cc9c547}{MCO\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+0
+\item 
+\#define \mbox{\hyperlink{main_8h_abd06dd7ec64336dc256720eb6fb94817}{MCO\+\_\+\+GPIO\+\_\+\+Port}}~GPIOF
+\item 
+\#define \mbox{\hyperlink{main_8h_aa0ae908d1e3952cd486ee20970cd4b6d}{LED\+\_\+\+GREEN\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+5
+\item 
+\#define \mbox{\hyperlink{main_8h_a274553bcc4193f1176d99f48de5059a1}{LED\+\_\+\+GREEN\+\_\+\+GPIO\+\_\+\+Port}}~GPIOA
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Header for \doxylink{main_8c}{main.\+c} file. This file contains the common defines of the application. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8h_a274553bcc4193f1176d99f48de5059a1}\index{main.h@{main.h}!LED\_GREEN\_GPIO\_Port@{LED\_GREEN\_GPIO\_Port}}
+\index{LED\_GREEN\_GPIO\_Port@{LED\_GREEN\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{LED\_GREEN\_GPIO\_Port}{LED\_GREEN\_GPIO\_Port}}
+{\footnotesize\ttfamily \label{main_8h_a274553bcc4193f1176d99f48de5059a1} 
+\#define LED\+\_\+\+GREEN\+\_\+\+GPIO\+\_\+\+Port~GPIOA}
+
+\Hypertarget{main_8h_aa0ae908d1e3952cd486ee20970cd4b6d}\index{main.h@{main.h}!LED\_GREEN\_Pin@{LED\_GREEN\_Pin}}
+\index{LED\_GREEN\_Pin@{LED\_GREEN\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{LED\_GREEN\_Pin}{LED\_GREEN\_Pin}}
+{\footnotesize\ttfamily \label{main_8h_aa0ae908d1e3952cd486ee20970cd4b6d} 
+\#define LED\+\_\+\+GREEN\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+5}
+
+\Hypertarget{main_8h_abd06dd7ec64336dc256720eb6fb94817}\index{main.h@{main.h}!MCO\_GPIO\_Port@{MCO\_GPIO\_Port}}
+\index{MCO\_GPIO\_Port@{MCO\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{MCO\_GPIO\_Port}{MCO\_GPIO\_Port}}
+{\footnotesize\ttfamily \label{main_8h_abd06dd7ec64336dc256720eb6fb94817} 
+\#define MCO\+\_\+\+GPIO\+\_\+\+Port~GPIOF}
+
+\Hypertarget{main_8h_a1a9a753e892d0c27036cb8929cc9c547}\index{main.h@{main.h}!MCO\_Pin@{MCO\_Pin}}
+\index{MCO\_Pin@{MCO\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{MCO\_Pin}{MCO\_Pin}}
+{\footnotesize\ttfamily \label{main_8h_a1a9a753e892d0c27036cb8929cc9c547} 
+\#define MCO\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+0}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8h_a1730ffe1e560465665eb47d9264826f9}\index{main.h@{main.h}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily \label{main_8h_a1730ffe1e560465665eb47d9264826f9} 
+void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a1730ffe1e560465665eb47d9264826f9_icgraph}
+\end{center}
+\end{figure}

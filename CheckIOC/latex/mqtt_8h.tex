@@ -1,0 +1,385 @@
+\doxysection{Core/inc/mqtt.h File Reference}
+\hypertarget{mqtt_8h}{}\label{mqtt_8h}\index{Core/inc/mqtt.h@{Core/inc/mqtt.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}stm32g0xx\+\_\+hal.\+h"{}}\newline
+Include dependency graph for mqtt.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{mqtt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{mqtt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a360aaf91c96c372043f54354db3d829c}{initialize\+MQTT}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a62a8a64227903ddec512a6088c83ada9}{connect\+MQTT}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a5d0533e7323add4f07574be764f4cc30}{check\+Connection}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a2a74419f4a33b799374f391308347907}{publish\+To\+Topic}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_aae105f02540703d757418e00529138f4}{data}}, int data\+\_\+length)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_aee8961358c04c0e6b741178dadcee39d}{Transmit\+Data\+Mqtt}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_aae105f02540703d757418e00529138f4}{data}}, int data\+\_\+length, uint8\+\_\+t \texorpdfstring{$\ast$}{*}x)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a060a2d6c5b7cde3b17a8becf8269f019}{disconnect\+MQTT}} (void)
+\item 
+void \mbox{\hyperlink{mqtt_8h_a759d49168504ee2e8e380b83cdc953a6}{SIMTransmit}} (const char \texorpdfstring{$\ast$}{*}cmd, uint32\+\_\+t rcv\+\_\+len, uint32\+\_\+t rcv\+\_\+timeout)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a7b6271427ad22a55079e4b5fc6104ac9}{uploadcertificate1}} (const char \texorpdfstring{$\ast$}{*}cert)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_aa2b540f2b90e46bcd7b00a475ae7e69c}{uploadcertificate2}} (const char \texorpdfstring{$\ast$}{*}cert)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a4f8d595c8ae448762c9e2e40030e87ab}{uploadcertificate3}} (const char \texorpdfstring{$\ast$}{*}cert)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a822dad4ae09100045730d5597634f50e}{assign\+PDPcontext}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_aaf027902daa3d57895319cd12a319670}{Quectelon}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a4030088e12e502480826a93d78676876}{Quecteloff}} (void)
+\item 
+void \mbox{\hyperlink{mqtt_8h_afbd6b90b01d4e8f657d690b798518844}{toggle\+Buzzer}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_afe8befed0d8aaae12fa445793ee42a05}{open\+MQTT}} (void)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a237e82b953036d74f1370af8b2b1daf4}{receive\+Message}} (uint32\+\_\+t rcv\+\_\+len, uint32\+\_\+t rcv\+\_\+timeout)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a481d6bab60d4687c018d6b5f395bc9f5}{Subscribetotopic}} (const char \texorpdfstring{$\ast$}{*}topic)
+\item 
+bool \mbox{\hyperlink{mqtt_8h_a78b85de408bb299586bac1a29414c0b5}{Unsubscribefrom\+Topic}} (const char \texorpdfstring{$\ast$}{*}topic)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{mqtt_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mqtt_8h_aa5e7416ffd9d6ea495320bee92ef6e4e}{buffer}} \mbox{[}400\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mqtt_8h_a30b4a94e024e9c7e76c9445479feec8e}{trx\+\_\+buffer}} \mbox{[}400\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mqtt_8h_a822dad4ae09100045730d5597634f50e}\index{mqtt.h@{mqtt.h}!assignPDPcontext@{assignPDPcontext}}
+\index{assignPDPcontext@{assignPDPcontext}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{assignPDPcontext()}{assignPDPcontext()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a822dad4ae09100045730d5597634f50e} 
+bool assign\+PDPcontext (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{mqtt_8h_a822dad4ae09100045730d5597634f50e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a822dad4ae09100045730d5597634f50e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a5d0533e7323add4f07574be764f4cc30}\index{mqtt.h@{mqtt.h}!checkConnection@{checkConnection}}
+\index{checkConnection@{checkConnection}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{checkConnection()}{checkConnection()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a5d0533e7323add4f07574be764f4cc30} 
+bool check\+Connection (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{mqtt_8h_a5d0533e7323add4f07574be764f4cc30_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a5d0533e7323add4f07574be764f4cc30_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a62a8a64227903ddec512a6088c83ada9}\index{mqtt.h@{mqtt.h}!connectMQTT@{connectMQTT}}
+\index{connectMQTT@{connectMQTT}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{connectMQTT()}{connectMQTT()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a62a8a64227903ddec512a6088c83ada9} 
+bool connect\+MQTT (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{mqtt_8h_a62a8a64227903ddec512a6088c83ada9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a62a8a64227903ddec512a6088c83ada9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a060a2d6c5b7cde3b17a8becf8269f019}\index{mqtt.h@{mqtt.h}!disconnectMQTT@{disconnectMQTT}}
+\index{disconnectMQTT@{disconnectMQTT}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{disconnectMQTT()}{disconnectMQTT()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a060a2d6c5b7cde3b17a8becf8269f019} 
+bool disconnect\+MQTT (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{mqtt_8h_a060a2d6c5b7cde3b17a8becf8269f019_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a060a2d6c5b7cde3b17a8becf8269f019_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a360aaf91c96c372043f54354db3d829c}\index{mqtt.h@{mqtt.h}!initializeMQTT@{initializeMQTT}}
+\index{initializeMQTT@{initializeMQTT}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{initializeMQTT()}{initializeMQTT()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a360aaf91c96c372043f54354db3d829c} 
+bool initialize\+MQTT (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{mqtt_8h_a360aaf91c96c372043f54354db3d829c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a360aaf91c96c372043f54354db3d829c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_afe8befed0d8aaae12fa445793ee42a05}\index{mqtt.h@{mqtt.h}!openMQTT@{openMQTT}}
+\index{openMQTT@{openMQTT}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{openMQTT()}{openMQTT()}}
+{\footnotesize\ttfamily \label{mqtt_8h_afe8befed0d8aaae12fa445793ee42a05} 
+bool open\+MQTT (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_afe8befed0d8aaae12fa445793ee42a05_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{mqtt_8h_afe8befed0d8aaae12fa445793ee42a05_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a2a74419f4a33b799374f391308347907}\index{mqtt.h@{mqtt.h}!publishToTopic@{publishToTopic}}
+\index{publishToTopic@{publishToTopic}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{publishToTopic()}{publishToTopic()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a2a74419f4a33b799374f391308347907} 
+bool publish\+To\+Topic (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+\_\+length}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{mqtt_8h_a2a74419f4a33b799374f391308347907_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a2a74419f4a33b799374f391308347907_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a4030088e12e502480826a93d78676876}\index{mqtt.h@{mqtt.h}!Quecteloff@{Quecteloff}}
+\index{Quecteloff@{Quecteloff}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{Quecteloff()}{Quecteloff()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a4030088e12e502480826a93d78676876} 
+bool Quecteloff (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mqtt_8h_aaf027902daa3d57895319cd12a319670}\index{mqtt.h@{mqtt.h}!Quectelon@{Quectelon}}
+\index{Quectelon@{Quectelon}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{Quectelon()}{Quectelon()}}
+{\footnotesize\ttfamily \label{mqtt_8h_aaf027902daa3d57895319cd12a319670} 
+bool Quectelon (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{mqtt_8h_aaf027902daa3d57895319cd12a319670_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a237e82b953036d74f1370af8b2b1daf4}\index{mqtt.h@{mqtt.h}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a237e82b953036d74f1370af8b2b1daf4} 
+bool receive\+Message (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{rcv\+\_\+len}{, }\item[{uint32\+\_\+t}]{rcv\+\_\+timeout}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mqtt_8h_a759d49168504ee2e8e380b83cdc953a6}\index{mqtt.h@{mqtt.h}!SIMTransmit@{SIMTransmit}}
+\index{SIMTransmit@{SIMTransmit}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{SIMTransmit()}{SIMTransmit()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a759d49168504ee2e8e380b83cdc953a6} 
+void SIMTransmit (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{cmd}{, }\item[{uint32\+\_\+t}]{rcv\+\_\+len}{, }\item[{uint32\+\_\+t}]{rcv\+\_\+timeout}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a759d49168504ee2e8e380b83cdc953a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a481d6bab60d4687c018d6b5f395bc9f5}\index{mqtt.h@{mqtt.h}!Subscribetotopic@{Subscribetotopic}}
+\index{Subscribetotopic@{Subscribetotopic}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{Subscribetotopic()}{Subscribetotopic()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a481d6bab60d4687c018d6b5f395bc9f5} 
+bool Subscribetotopic (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{topic}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a481d6bab60d4687c018d6b5f395bc9f5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_afbd6b90b01d4e8f657d690b798518844}\index{mqtt.h@{mqtt.h}!toggleBuzzer@{toggleBuzzer}}
+\index{toggleBuzzer@{toggleBuzzer}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{toggleBuzzer()}{toggleBuzzer()}}
+{\footnotesize\ttfamily \label{mqtt_8h_afbd6b90b01d4e8f657d690b798518844} 
+void toggle\+Buzzer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mqtt_8h_aee8961358c04c0e6b741178dadcee39d}\index{mqtt.h@{mqtt.h}!TransmitDataMqtt@{TransmitDataMqtt}}
+\index{TransmitDataMqtt@{TransmitDataMqtt}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{TransmitDataMqtt()}{TransmitDataMqtt()}}
+{\footnotesize\ttfamily \label{mqtt_8h_aee8961358c04c0e6b741178dadcee39d} 
+bool Transmit\+Data\+Mqtt (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+\_\+length}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{x}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_aee8961358c04c0e6b741178dadcee39d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{mqtt_8h_aee8961358c04c0e6b741178dadcee39d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a78b85de408bb299586bac1a29414c0b5}\index{mqtt.h@{mqtt.h}!UnsubscribefromTopic@{UnsubscribefromTopic}}
+\index{UnsubscribefromTopic@{UnsubscribefromTopic}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{UnsubscribefromTopic()}{UnsubscribefromTopic()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a78b85de408bb299586bac1a29414c0b5} 
+bool Unsubscribefrom\+Topic (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{topic}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mqtt_8h_a78b85de408bb299586bac1a29414c0b5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a7b6271427ad22a55079e4b5fc6104ac9}\index{mqtt.h@{mqtt.h}!uploadcertificate1@{uploadcertificate1}}
+\index{uploadcertificate1@{uploadcertificate1}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{uploadcertificate1()}{uploadcertificate1()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a7b6271427ad22a55079e4b5fc6104ac9} 
+bool uploadcertificate1 (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{cert}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{mqtt_8h_a7b6271427ad22a55079e4b5fc6104ac9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{mqtt_8h_a7b6271427ad22a55079e4b5fc6104ac9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_aa2b540f2b90e46bcd7b00a475ae7e69c}\index{mqtt.h@{mqtt.h}!uploadcertificate2@{uploadcertificate2}}
+\index{uploadcertificate2@{uploadcertificate2}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{uploadcertificate2()}{uploadcertificate2()}}
+{\footnotesize\ttfamily \label{mqtt_8h_aa2b540f2b90e46bcd7b00a475ae7e69c} 
+bool uploadcertificate2 (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{cert}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{mqtt_8h_aa2b540f2b90e46bcd7b00a475ae7e69c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{mqtt_8h_aa2b540f2b90e46bcd7b00a475ae7e69c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mqtt_8h_a4f8d595c8ae448762c9e2e40030e87ab}\index{mqtt.h@{mqtt.h}!uploadcertificate3@{uploadcertificate3}}
+\index{uploadcertificate3@{uploadcertificate3}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{uploadcertificate3()}{uploadcertificate3()}}
+{\footnotesize\ttfamily \label{mqtt_8h_a4f8d595c8ae448762c9e2e40030e87ab} 
+bool uploadcertificate3 (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{cert}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{mqtt_8h_a4f8d595c8ae448762c9e2e40030e87ab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{mqtt_8h_a4f8d595c8ae448762c9e2e40030e87ab_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{mqtt_8h_aa5e7416ffd9d6ea495320bee92ef6e4e}\index{mqtt.h@{mqtt.h}!buffer@{buffer}}
+\index{buffer@{buffer}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \label{mqtt_8h_aa5e7416ffd9d6ea495320bee92ef6e4e} 
+uint8\+\_\+t buffer\mbox{[}400\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{mqtt_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}\index{mqtt.h@{mqtt.h}!huart3@{huart3}}
+\index{huart3@{huart3}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{huart3}{huart3}}
+{\footnotesize\ttfamily \label{mqtt_8h_ab7c63c1b0f65db92b6a4ea19edf957e1} 
+UART\+\_\+\+Handle\+Type\+Def huart3\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{mqtt_8h_a30b4a94e024e9c7e76c9445479feec8e}\index{mqtt.h@{mqtt.h}!trx\_buffer@{trx\_buffer}}
+\index{trx\_buffer@{trx\_buffer}!mqtt.h@{mqtt.h}}
+\doxysubsubsection{\texorpdfstring{trx\_buffer}{trx\_buffer}}
+{\footnotesize\ttfamily \label{mqtt_8h_a30b4a94e024e9c7e76c9445479feec8e} 
+uint8\+\_\+t trx\+\_\+buffer\mbox{[}400\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
