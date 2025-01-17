@@ -1,0 +1,51 @@
+!SESSION 2025-01-11 12:38:52.249 -----------------------------------------------
+eclipse.buildId=Version 1.15.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:\MQTT-Communication\StmCode
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-01-11 12:38:57.325
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-01-11 12:38:57.345
+!MESSAGE Log4j2 initialized with config file D:\MQTT-Communication\StmCode\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-01-11 12:39:00.019
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-01-11 12:39:27.277 -----------------------------------------------
+eclipse.buildId=Version 1.15.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/D:/MQTT-Communication/StmCode/
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-01-11 12:39:31.295
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-01-11 12:39:31.296
+!MESSAGE Log4j2 initialized with config file D:\MQTT-Communication\StmCode\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-01-11 12:39:34.130
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:08.094
+!MESSAGE Indexed 'TestFunc' (23 sources, 119 headers) in 3.14 sec: 10,406 declarations; 41,644 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.33%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:10.024
+!MESSAGE Indexed 'Displaytomicro' (23 sources, 119 headers) in 1.9 sec: 10,374 declarations; 41,654 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.33%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:11.756
+!MESSAGE Indexed 'TestRMSFunctions' (23 sources, 119 headers) in 1.71 sec: 10,409 declarations; 41,711 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.33%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:13.465
+!MESSAGE Indexed 'improving_code' (24 sources, 122 headers) in 1.68 sec: 10,500 declarations; 42,123 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.32%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:16.386
+!MESSAGE Indexed 'rms_v1' (25 sources, 121 headers) in 1.52 sec: 10,524 declarations; 42,157 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.32%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:19.282
+!MESSAGE Indexed 'Cert_upload' (24 sources, 120 headers) in 2.86 sec: 10,405 declarations; 41,537 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.33%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-11 12:41:21.069
+!MESSAGE Indexed 'CheckIOC' (24 sources, 121 headers) in 1.78 sec: 10,503 declarations; 42,144 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.32%)
